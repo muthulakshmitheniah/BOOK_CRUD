@@ -1,0 +1,34 @@
+<!-- Book Details Showing -->
+<div class="flex-column" style="height:100vh;">
+  <!-- Error Message -->
+  <% if flash[:errors] %>
+    <% flash.each do |name, message| %>
+      <p class="text-danger"><%= message %></p>
+    <% end %>
+  <% end %>
+  <center>
+  <div class="d-flex">
+    <div class="m-5" >
+      <div class="card bg-light border-warning shadow">
+        <div class="card-body">
+          <div class="card-header">
+            <h2 class="text-center">Book Details</h2>
+          </div>
+          <div>
+            <h2> &#10145; ID: <%= @book.id %> </h2>
+            <h2> &#10145; Title: <%= @book.title %> </h2>
+            <h2> &#10145; Author: <%= @book.author %> </h2>
+            <h2> &#10145; Genre: <%= @book.genre %> </h2>
+            <h2> &#10145; Published Date: <%= @book.published_date %> </h2>
+          </div>
+          <div class="d-flex">
+            <%= button_to "Edit Book", edit_book_path, method: :get, class: "btn-success border-0 rounded-pill shadow p-2 m-2" %>
+            <%= button_to "Delete Book", book_path, method: :delete, class: "btn-danger border-0 rounded-pill shadow p-2 m-2", data: { confirm: 'Are you sure?' } %>
+            <%= button_to "View all Books", books_path, method: :get, class: "btn-primary border-0 rounded-pill shadow p-2 m-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </center>
+</div>
